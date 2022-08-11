@@ -1,0 +1,41 @@
+.container {
+    background-color: #333;
+    border-radius: .4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .3rem;
+    padding: .3rem;
+    transition: all .3s;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.flag{
+    width: 10rem;
+    height: 7rem;
+}
+.container p{
+    background: none;
+}
+
+.container:hover {
+    box-shadow: 3px 7px 5px black;
+    transform: scale(1.02);
+}
+
+
+.btn{
+    margin-top: .4rem;
+    border: none;
+    border-radius: .6rem;
+    padding: .4rem 1rem;
+    cursor: pointer;
+    background-color: orange;
+    transition: all .3s;
+} 
+
+.btn:hover{
+    background-color: red;
+    color: white;
+}

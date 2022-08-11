@@ -1,0 +1,12 @@
+.country-container{
+    background-color: #444;
+    color: white;
+    padding: .6rem;
+    
+}
+
+h1{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
