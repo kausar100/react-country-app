@@ -6,6 +6,10 @@ const Country = (props) => {
 
   const { name, capital, flags, area, population, region } = props.data;
 
+  const removeCountry = (countryName) => {
+    props.deleteItem(countryName);
+  }
+
   return (
     <article>
       <div className={css.container}>
@@ -15,7 +19,7 @@ const Country = (props) => {
         <p>Population : {population}</p>
         <p>Area :  {area}</p>
         <p>Region : {region}</p>
-        <button className={css.btn} >Delete</button>
+        <button className={css.btn} onClick={() => removeCountry(name.common)}>Remove</button>
       </div>
 
     </article>

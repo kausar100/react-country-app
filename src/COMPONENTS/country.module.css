@@ -1,5 +1,5 @@
 .container {
-    background-color: #333;
+    background-color: #222;
     border-radius: .4rem;
     display: flex;
     align-items: center;
@@ -14,9 +14,11 @@
 .flag{
     width: 10rem;
     height: 7rem;
+    margin-bottom: .6rem;
 }
 .container p{
     background: none;
+    margin-bottom: .4rem;
 }
 
 .container:hover {

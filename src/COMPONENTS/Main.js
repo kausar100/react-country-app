@@ -31,12 +31,21 @@ const Main = () => {
 
     }, [])
 
+    const deleteCountry = (name) => {
+        const filterdata = data.filter( (country) => {
+            return country.name.common !== name;
+        })
+        setdata(filterdata);
+        // alert(name);
+
+    }
+
     return (
         <div className={css['country-container']}>
             <h1>Country App</h1>
-            {error != null && <p>{error}</p>}
-            {isLoading && <p>Data is Loading. Please Wait...</p>}
-            <Countries countries={data} />
+            <span>{error != null && <p>{error}</p>}</span>
+            <span>{isLoading && <p>Data is Loading. Please Wait...</p>}</span>
+            <Countries countries={data} deleteItem={deleteCountry} />
         </div>
     )
 }
