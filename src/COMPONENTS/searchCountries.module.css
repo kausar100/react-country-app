@@ -1,0 +1,11 @@
+input{
+    padding: .6rem;
+    border-radius: .6rem;
+    width: 20rem;
+    font-size: 1.2rem;
+    
+}
+
+input:focus{
+    background-color: bisque;
+}
