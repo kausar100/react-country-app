@@ -6,8 +6,8 @@ const SearchCountries = (props) => {
 
     const [searchText, setsearchText] = useState("");
 
-    const handleInput = (e) => {
-        setsearchText(e.target.value)
+    const handleChange = (e) => {
+        setsearchText(e.target.value);
     }
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const SearchCountries = (props) => {
             <input type='text'
                 placeHolder='Search Country'
                 value={searchText}
-                onChange={handleInput}>
+                onChange={handleChange}>
 
             </input>
         </div>

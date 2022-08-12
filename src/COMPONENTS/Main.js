@@ -6,21 +6,27 @@ import SearchCountries from './SearchCountries';
 
 const Main = () => {
 
-    const [data, setdata] = useState([]);
-    const [isLoading, setisLoading] = useState(true);
+    const [countries, setcountries] = useState([]); //main
+    const [filterCountries, setfilterCountries] = useState([]); //for use
+    const [isLoading, setisLoading] = useState(null);
     const [error, seterror] = useState(null);
 
     const getData = async (url) => {
         try {
+            setisLoading(true);
             const countryData = await fetch(url);
-            const parseData = await countryData.json();
-            setdata(parseData);
+            const data = await countryData.json();
+            setcountries(data);
+            setfilterCountries(data);
+
             setisLoading(false);
+            seterror(null);
 
         } catch (err) {
-            seterror(err.message);
-            setdata(null);
             setisLoading(false);
+
+            seterror("Data fetching is not successfully done.");
+
         }
 
     }
@@ -32,24 +38,26 @@ const Main = () => {
     }, [])
 
     const deleteCountry = (name) => {
-        const filterdata = data.filter((country) => {
+        const filterdata = countries.filter((country) => {
             return country.name.common !== name;
-        })
-        setdata(filterdata);
+        });
+
+        setfilterCountries(filterdata);
         // alert(name);
 
     }
 
-    const searchCountries = (text) => {
-        const inputText = text.toLowerCase();
+    const searchCountries = (searchValue) => {
+        const inputText = searchValue.toLowerCase();
         // alert(inputText);
 
-        const filterCountries = data.filter((country) => {
+        const filterdata = countries.filter((country) => {
             const countryName = country.name.common.toLowerCase();
             return countryName.startsWith(inputText);
-        })
+        });
 
-        setdata(filterCountries);
+        setfilterCountries(filterdata);
+
     }
 
     return (
@@ -57,9 +65,11 @@ const Main = () => {
         <div className={css['country-container']}>
             <h1>Country App</h1>
             <SearchCountries onSearch={searchCountries} />
-            <span>{error != null && <p>{error}</p>}</span>
+
             <span>{isLoading && <p>Data is Loading. Please Wait...</p>}</span>
-            <Countries countries={data} deleteItem={deleteCountry} />
+            <span>{error != null && <p>{error}</p>}</span>
+
+            {countries && <Countries countries={filterCountries} deleteItem={deleteCountry} />}
         </div>
     )
 }

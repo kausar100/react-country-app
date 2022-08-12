@@ -4,7 +4,7 @@ import css from './country.module.css';
 
 const Country = (props) => {
 
-  const { name, capital, flags, area, population, region } = props.data;
+  const { name, capital, flags, area, population, region } = props.country;
 
   const removeCountry = (countryName) => {
     props.deleteItem(countryName);

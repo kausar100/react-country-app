@@ -11,7 +11,8 @@ const Countries = (props) => {
       
       {
         props.countries.map((country) => {
-          return <Country key={uuidv4()} data={country} deleteItem={props.deleteItem} />
+          const newCountry   = {country, id: uuidv4()}; 
+          return <Country key={newCountry.id} {...newCountry} deleteItem={props.deleteItem} />
         })}
 
     </section>
