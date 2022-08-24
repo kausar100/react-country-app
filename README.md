@@ -1,3 +1,6 @@
+<h2>You can see live demo from here</h2>
+https://kausar100-country-app.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
